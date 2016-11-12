@@ -1,7 +1,7 @@
 // ========== guidebox api =========
 
 var idList = [];
-var movieTitles = [];
+var movieData = [];
 
 $('#submit-btn').on('click', function(){
 	var guideBoxApiKey = 'rKqEl4tThhp94JtuWhfE3ECq1EsgQQIR';
@@ -9,15 +9,19 @@ $('#submit-btn').on('click', function(){
 	var movieQuery = "https://api-public.guidebox.com/v1.43/US/" + guideBoxApiKey + "/search/movie/title/" + movieSearch + "/fuzzy";
 	
 	$.ajax({url: movieQuery, method: 'GET'}).done(function(data){
-		// console.log(data);
-
-		for(var i = 0; i < 10; i++) {
+		console.log(movieQuery);
+		var resultLength = data.results.length;
+		// debugger;
+		for(var i = 0; i < resultLength; i++) {
 			var id = data.results[i].id;
 			idList.push(id);
 		} 
 
 		movieIDSearch();
+		console.log('ran first ajax');
 	});
+
+	console.log('captured click');
 
 });
 
@@ -39,17 +43,25 @@ function movieIDSearch(){
 function movieIdAjax(movieIdQuery) {
 	$.ajax({url: movieIdQuery, method: 'GET'}).done(function(data){
 		// store movie data
-		var movieTitle = data.title;
-		movieTitles.push(movieTitle);
+		var id = data.id;
+		var title = data.title;
+		var releaseYear = data.release_year;
+		var description = data.overview;
+		var imageLink = data.poster_240x342;
+		var streamingSources = data.subscription_web_sources;
+
+		var movieObj = {
+			id: id,
+			title: title,
+			releaseYear: releaseYear,
+			description: description,
+			imageLink: imageLink,
+			streamingSources: streamingSources
+		}
+
+		movieData.push(movieObj);
+
+		console.log('ran first ajax');
 	});	
 }
 
-// console.log(movieTitles);
-
-// for (var i .....) {
-//   (function (i) {
-//     async(function() {
-//       use(i);
-//     });
-//   })(i);
-// }
