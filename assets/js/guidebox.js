@@ -8,7 +8,7 @@ function getMovieData(){
 	// grab user input and store as a var ref
 	var movieSearch = $('#user-search').val().trim();
 	// construct query to search guidebox
-	var movieQuery = "https://api-public.guidebox.com/v1.43/US/" + guideBoxApiKey + "/search/movie/title/" + movieSearch + "/exact";
+	var movieQuery = "https://api-public.guidebox.com/v1.43/US/" + guideBoxApiKey + "/search/movie/title/" + movieSearch + "/fuzzy";
 	
 	$.ajax({url: movieQuery, method: 'GET'}).done(function(data){
 		// log the query url for reference
