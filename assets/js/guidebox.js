@@ -50,6 +50,15 @@ function movieIdAjax(movieIdQuery) {
 		var description = data.overview;
 		var imageLink = data.poster_240x342;
 		var streamingSources = data.subscription_web_sources;
+		var imdbId = data.imdb;
+		
+		// run the omdb function to get ratings here
+		// getRatings(imdbId); 
+			// should return imdb rating and metacritic rating
+		
+		// the rating will be stored in a var
+		// var imdbRating = ;
+		// var metacriticRating = ;
 
 		// construct obj with the var references
 		var movieObj = {
@@ -58,7 +67,10 @@ function movieIdAjax(movieIdQuery) {
 			releaseYear: releaseYear,
 			description: description,
 			imageLink: imageLink,
-			streamingSources: streamingSources
+			streamingSources: streamingSources,
+			imdbId: imdbId
+			// metacriticRating: metacriticRating,
+			// imdbRating: imdbRating
 		}
 
 		// add obj to the movieData array
