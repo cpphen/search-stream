@@ -18,11 +18,7 @@ $('#submit-btn').on('click', function(){
 		} 
 
 		movieIDSearch();
-		console.log('ran first ajax');
 	});
-
-	console.log('captured click');
-
 });
 
 
