@@ -4,9 +4,11 @@ var guideBoxApiKey = 'rKqEl4tThhp94JtuWhfE3ECq1EsgQQIR';
 var idList = [];
 var movieData = [];
 
-$('#submit-btn').on('click', function(){
+function getMovieData(){	
+	// grab user input and store as a var ref
 	var movieSearch = $('#user-search').val().trim();
-	var movieQuery = "https://api-public.guidebox.com/v1.43/US/" + guideBoxApiKey + "/search/movie/title/" + movieSearch + "/fuzzy";
+	// construct query to search guidebox
+	var movieQuery = "https://api-public.guidebox.com/v1.43/US/" + guideBoxApiKey + "/search/movie/title/" + movieSearch + "/exact";
 	
 	$.ajax({url: movieQuery, method: 'GET'}).done(function(data){
 		// log the query url for reference
@@ -25,8 +27,11 @@ $('#submit-btn').on('click', function(){
 		// function is a separate api call for each movie to get more specific movie data
 		movieIDSearch();
 	});
-});
 
+	// clear movie search input
+	$('#user-search').val(''); 
+
+}
 
 function movieIDSearch(){
 	for(var i = 0; i < idList.length; i++){	
@@ -38,6 +43,8 @@ function movieIDSearch(){
 			
 			// search movie id using fully constructed movieIdQuery  
 			movieIdAjax(movieIdQuery);
+
+
 	}
 }
 
@@ -75,7 +82,6 @@ function movieIdAjax(movieIdQuery) {
 
 		// add obj to the movieData array
 		movieData.push(movieObj);
-
 	});	
 }
 
