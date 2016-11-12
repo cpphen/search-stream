@@ -4,32 +4,59 @@
 	<title></title>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 <div class="container-fluid">
-	<div class="row">
+	<div id="header" class="row">
 		<div class="col-lg-12">
 			<h1>SearchStream</h1>
 		</div>
 	</div>
-	<div class="row">
+	<div id="search-bar" class="row">
 		<div class="col-lg-12">
 			<input id="user-search" type="text" placeholder="Search a Movie...">
 			<button id="submit-btn">Search</button>
 		</div>
 	</div>
-	<div class="row">
-		<div id="results" class="col-lg-12">
-			
+	<div id="results">
+		
+		<!-- result component -->
+		<div class="row result">
+			<!-- movie image -->
+			<div class="col-lg-3 movie-poster">
+				<img src="http://static.rogerebert.com/uploads/movie/movie_poster/nightcrawler-2014/large_ciARJx8fJqum8uh6gLePaNoyYNY.jpg" alt="">
+			</div>
+			<!-- movie description & ratings -->
+			<div class="col-lg-6 movie-description">
+				<h2>Description	</h2>
+				<p>When Louis Bloom, a driven man desperate for work, muscles into the world of L.A. crime journalism, he blurs the line between observer and participant to become the star of his own story. Aiding him in his effort is Nina, a TV-news veteran.</p>
+				<h2>Ratings</h2>			
+				<ul class="reviews">
+					<li>Metacritic</li>
+					<li>Rotten Tomatoes</li>
+				</ul>
+			</div>
+			<!-- streaming links -->
+			<div class="col-lg-3 streaming-links">
+				<h2>Streaming On</h2>
+				<!-- displays available streaming sources, or none if there aren't any available -->
+				<ul>
+					<li>Netflix</li>
+					<li>HBO GO</li>
+					<li>Amazon Prime</li>
+				</ul>
+			</div>
 		</div>
+		<!-- end result component -->
+	
 	</div>
+	
 </div>
-
-test
-test2sdfaas
 
 <!-- Latest compiled and minified CSS & JS -->
 <script src="https://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/omdb.js"></script>
+<script type="text/javascript" src="assets/js/guidebox.js"></script>
 </body>
 </html>

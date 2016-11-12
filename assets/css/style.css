@@ -1,0 +1,28 @@
+#header {
+	text-align: center;
+	margin: 25px;
+}
+
+#header h1 {
+	font-size: 62px;
+}
+
+#search-bar {
+	text-align: center;
+	margin: 25px 25px 50px 25px;
+
+}
+
+input#user-search {
+	width: 35%;
+	font-size: 32px;
+	padding-left: 10px;
+}
+
+button#submit-btn {
+	font-size: 32px;
+}
+
+.movie-poster > img {
+	width: 100%;
+}
