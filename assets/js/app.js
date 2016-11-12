@@ -50,7 +50,7 @@ function reset(){
 function getResults() {	
 	// select results section to append everything to
 	var results = $('#results');
-	console.log("in get results function: " + movieData);
+
 	for(var i = 0; i < movieData.length; i++) {
 		
 		// // construct a div with class = 'row result'
