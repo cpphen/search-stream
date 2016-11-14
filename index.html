@@ -3,11 +3,12 @@
 <head>
 	<title></title>
 	<!-- Bootstrap -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-<div class="container-fluid">
+<div id="search-form" class="container-fluid">
 	<div id="header" class="row">
 		<div class="col-lg-12">
 			<h1>SearchStream</h1>
@@ -15,14 +16,22 @@
 	</div>
 	<div id="search-bar" class="row">
 		<div class="col-lg-12">
-			<input id="user-search" type="text" placeholder="Search a Movie...">
+			<input id="user-search" type="text" placeholder="Search a movie to see if it's streaming...">
+			<br />
 			<button id="submit-btn">Search</button>
 		</div>
 	</div>
+	<div id="loading" class="row hide">
+		<div class="col-lg-12">
+			<img src="assets/images/loading.gif" alt="loading">
+		</div>
+	</div>
+</div>
+<div class="hide container">
 	<div id="results">		
 	</div>
-	
 </div>
+	
 
 <!-- Latest compiled and minified CSS & JS -->
 <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
