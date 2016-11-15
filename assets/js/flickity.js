@@ -1,4 +1,4 @@
-var flick = $('<div class = "main-carousel" style = "height: 300px">');
+var flick = $('<div class = "main-carousel" data-flickity style = "height: 300px">');
 
 for (var x = 0; x <= 10; x++)
 {

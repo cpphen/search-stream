@@ -41,9 +41,9 @@ $(document).ajaxStop(function() {
 	// remove loading animate gif
 	$('#loading').addClass('hide');
 	// animate height of search section to auto
-	$('.container-fluid').css('height','auto');
+	// $('.container-fluid').css('height','auto');
 	// display the results section
-	$('.container').removeClass('hide');
+	$('#results').removeClass('hide');
 });
 
 function reset(){
@@ -72,7 +72,7 @@ function getResults() {
 		imageDiv.append(image);
 
 		// construct movie description and rating div
-		var descDiv = $('<div>').addClass('col-sm-6 col-lg-6 movie-description');
+		var descDiv = $('<div>').addClass('col-sm-6 col-lg-9 movie-description');
 		var descriptionHeading = $('<h2>').text('Description');
 		var description = $('<p>').text(movieData[i].description);
 		// append heading and description
@@ -87,8 +87,7 @@ function getResults() {
 		descDiv.append(reviewHeading);
 		// append ratings that exist
 
-		// streaming links div
-		var streamingDiv = $('<div>').addClass('col-sm-12 col-lg-3 streaming-links');
+		// streaming links section elements
 		var streamingHeading = $('<h2>').text('Streaming On');
 		var streamingUl = $('<ul>');
 		var noStreams = $('<div>');
@@ -113,25 +112,23 @@ function getResults() {
 			}
 		}
 
-		// append to streamingDiv
-		streamingDiv.append(streamingHeading);
+		// append streaming heading to descDiv
+		descDiv.append(streamingHeading);
 		
-		// append streaming sources that exist, or show not streaming message
+		// if there are no streaming sources, display no streaming message
 		if(movieData[i].streamingSources.length === 0) {
-			streamingDiv.append(noStreams);
-		} else {			
-			streamingDiv.append(streamingUl);
+			descDiv.append(noStreams);
+		} else { 			
+			// display list of streaming sources
+			descDiv.append(streamingUl);
 		}
 
 		// append all constructed columns to row div
 		resultDiv.append(imageDiv);
 		resultDiv.append(descDiv);
-		resultDiv.append(streamingDiv);
+		// resultDiv.append(streamingDiv);
 
 		// append completed result component to results display section
 		results.append(resultDiv);
 	}
 }
-
-// get length of streaming sources: movieData[0].streamingSources.length
-// get streaming sources display name: movieData[0].streamingSources[0].display_name
