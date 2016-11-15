@@ -1,8 +1,8 @@
-var flick = $('<div class = "main-carousel">');
+var flick = $('<div class = "main-carousel" style = "height: 300px">');
 
 for (var x = 0; x <= 10; x++)
 {
-	var cellDiv = $('<div class = "carousel-cell">');
+	var cellDiv = $('<div class = "carousel-cell" style = height: "100%">');
 	flick.append(cellDiv);
 }
 $('#top-results').append(flick);
