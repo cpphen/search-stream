@@ -31,6 +31,8 @@ var imageURL;
 //    console.log(key + " -> " + movies[key]);
 //  }
 // }
+// keep track of the number of movies in the topsearched.
+
 
 function grabTitleAndImage() {
 	movieName = movieData[0].title;
@@ -46,19 +48,28 @@ function pushFirebase() {
 			var counter = snapshot.val().movies[movieName].counter;
 			counter++;
 			database.ref('movies/' +movieName).update({counter: counter});
-
+			// datbase.ref('movies/' + movieName)
 			
 		} else {
-			database.ref('movies/' +movieName).update({counter: 1});
+			console.log('Its not there');
+			database.ref('movies/' +movieName).update({counter: 1, imageURL: imageURL});
 		}
 		
-		}), function (errorObject) {
+	}), function (errorObject) {
 	console.log('error!!!!' + errorObject.code);
 	}
 }
 
-
+var movieRef = firebase.database().ref('movies');
+function sortFirebase() {
+	movieRef.orderByChild('counter').limitToLast(10).once("value", function(orderedSnapshot) {
+		console.log(orderedSnapshot.val());
+	}), function (errorObject) {
+	console.log('error!!!!' + errorObject.code);
+	}
+}
 
 $(document).ajaxStop(function() {
 	grabTitleAndImage();
+	sortFirebase();
 })
