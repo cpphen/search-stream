@@ -33,7 +33,7 @@ body {
 }
 
 input#user-search {
-	width: 35%;
+	width: 40%;
 	font-size: 32px;
 	padding: 10px;
 	border: 1px solid #ccc;
@@ -44,10 +44,10 @@ input#user-search {
 button#submit-btn {
 	font-size: 32px;
 	border: none;
-	padding: 10px;
+	padding: 10px 20px;
 	background-color: #e67e22;
     border-radius: 5px;
-    width: 10%;
+    /*width: 10%;*/
     color: #eee;
     font-weight: 700;
     transition: all 0.3s ease 0s;
@@ -70,7 +70,7 @@ button#submit-btn:focus {
 }
 
 #signup {
-	width: 85%;
+	width: 45%;
 	color: #fff;
 	opacity: 0.8;
 	background-color: #333;
@@ -81,7 +81,7 @@ button#submit-btn:focus {
 }
 
 input#user-email {
-	width: 50%;
+	width: 80%;
 	padding: 10px;
 	color: #333;
 	border-radius: 5px;
@@ -108,6 +108,13 @@ button#newsletter-signup {
 
 .movie-poster > img {
 	width: 100%;
+}
+
+#num-results {
+	text-align: center;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 42px;
 }
 
 .result {
@@ -151,4 +158,13 @@ button#newsletter-signup {
 
 .hide {
 	display: none;
+}
+
+@media (max-width: 768px) {
+	input#user-search {
+		font-size: 20px;
+	}
+	button#submit-btn {
+		font-size: 20px;
+	}
 }

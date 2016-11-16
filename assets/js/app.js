@@ -25,6 +25,11 @@ function reset(){
 function getResults() {	
 	// select results section to append everything to
 	var results = $('#results');
+	
+	// show number of results
+	var numResults = $('<h2>').text('Movies found: ' + idList.length);
+	numResults.attr('id', 'num-results');
+	results.append(numResults);
 
 	for(var i = 0; i < movieData.length; i++) {
 		
