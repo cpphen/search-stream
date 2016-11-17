@@ -1,3 +1,20 @@
+html, body {
+	height: 100%;
+}
+body {
+	background-color: #ecf0f1;         
+	font-family: 'Raleway', sans-serif;
+}
+
+.container-fluid {
+	/*background-color: #fff;*/
+	background-image: url('../../assets/images/small_steps.png');
+	height: auto;
+	-webkit-transition: height ease 0.8s;
+	-moz-transition: height ease 0.8s;
+	transition: height ease 0.8s;	
+}
+
 #header {
 	text-align: center;
 	margin: 25px;
@@ -5,6 +22,8 @@
 
 #header h1 {
 	font-size: 62px;
+	color: #333;
+	font-weight: 700;
 }
 
 #search-bar {
@@ -14,15 +33,139 @@
 }
 
 input#user-search {
-	width: 35%;
+	width: 40%;
 	font-size: 32px;
-	padding-left: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 30px;
 }
 
 button#submit-btn {
 	font-size: 32px;
+	border: none;
+	padding: 10px 20px;
+	background-color: #e67e22;
+    border-radius: 5px;
+    /*width: 10%;*/
+    color: #eee;
+    font-weight: 700;
+    transition: all 0.3s ease 0s;
+}
+
+button#submit-btn:hover {
+	box-shadow: inset 0 0 0 5px #d35400;
+}
+
+button#submit-btn:focus {
+	outline: none;
+}
+
+#loading {
+	text-align: center;
+}
+
+#loading img {
+	width: 64px;
+	padding-left: 10px;
+}
+
+#signup {
+	width: 45%;
+	color: #fff;
+	opacity: 0.8;
+	background-color: #333;
+	text-align: center;
+	margin: 0 auto 40px;
+	padding: 50px;
+	border-radius: 5px;
+}
+
+input#user-email {
+	width: 80%;
+	padding: 10px;
+	color: #333;
+	border-radius: 5px;
+	margin: 15px;
+}
+
+button#newsletter-signup {
+	margin: 10px;
+	color: ;
+	border: 1px solid grey;
+	background-color: transparent;
+	padding: 15px;
+	border-radius: 5px;
+	transition: background-color ease 0.3s;
+}
+
+#newsletter-signup:hover {
+	background-color: #111;
+}
+
+#results {
+	margin: 0 0 100px 0;
 }
 
 .movie-poster > img {
 	width: 100%;
+}
+
+#num-results {
+	text-align: center;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 42px;
+}
+
+.result {
+	margin: 25px 0px;
+	background-color: #444;
+	padding: 20px;
+	color: #eee;
+	border-radius: 5px;
+	transition: background-color ease 0.3s;
+}
+
+.result:hover {
+	background-color: #333;
+}
+
+#results > div > div.col-lg-3.movie-poster > img {
+	/*padding: 20px;*/
+}
+
+.result h2 {
+
+}
+
+.signup-btn {
+	background-color: #27ae60;
+	border: none;
+	border-radius: 5px;
+	font-weight: 800;
+	padding: 15px;
+	margin-top: 15px;
+	transition: background-color ease 0.3s;
+}
+
+.signup-btn:hover {
+	background-color: #2ecc71;
+}
+
+.signup-btn:focus {
+	outline: none;
+}
+
+.hide {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	input#user-search {
+		font-size: 20px;
+	}
+	button#submit-btn {
+		font-size: 20px;
+	}
 }
