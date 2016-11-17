@@ -31,7 +31,10 @@ var imageURL;
 //    console.log(key + " -> " + movies[key]);
 //  }
 // }
+// keep track of the number of movies in the topsearched.
 
+var topTenTitles = [];
+var topTenImages = [];
 function grabTitleAndImage() {
 	movieName = movieData[0].title;
 	imageURL = movieData[0].imageLink;
@@ -46,18 +49,35 @@ function pushFirebase() {
 			var counter = snapshot.val().movies[movieName].counter;
 			counter++;
 			database.ref('movies/' +movieName).update({counter: counter});
-
+			// datbase.ref('movies/' + movieName)
 			
 		} else {
-			database.ref('movies/' +movieName).update({counter: 1});
+			console.log('Its not there');
+			database.ref('movies/' +movieName).update({counter: 1, imageURL: imageURL});
 		}
 		
-		}), function (errorObject) {
+	}), function (errorObject) {
+	console.log('error!!!!' + errorObject.code);
+	}
+	sortFirebase();
+}
+
+var movieRef = firebase.database().ref('movies');
+function sortFirebase() {
+	movieRef.orderByChild('counter').limitToLast(10).once("value", function(orderedSnapshot) {
+		var topTenMoviesObj = orderedSnapshot.val();
+		
+		topTenTitles = Object.keys(topTenMoviesObj);
+		console.log(topTenTitles);
+		for(var i = 0; i < topTenTitles.length; i++){
+			topTenImages = topTenMoviesObj[topTenTitles[i]].imageURL;
+		}
+		console.log(topTenImages);
+		// console.log(Object.keys(topTenMoviesObj))
+	}), function (errorObject) {
 	console.log('error!!!!' + errorObject.code);
 	}
 }
-
-
 
 $(document).ajaxStop(function() {
 	grabTitleAndImage();
