@@ -21,10 +21,13 @@
 function flickityFunc(){
   
     var flick = $('<div class = "main-carousel" data-flickity style = "border: solid; border-color: black; border-width: 10px; background-color: #333333; padding: 20px; height: 480px">');
-
-    for (var x = 0; x < 10; x++)
+    console.log(topTenImages);
+    console.log(topTenImages.length);
+    debugger;
+    for (var x = 0; x < topTenImages.length; x++)
     {
     	var cellDiv = $('<div class = "carousel-cell" style = "height: 470px  ; width: 500px">');
+      console.log(topTenImages[x]);
       var cellImage = $('<img class = "carousel-image" style = "padding: 10px; height: 100%; width: 100%" src =' + topTenImages[x]+ '>')
     	cellDiv.append(cellImage);
       flick.append(cellDiv);

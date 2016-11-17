@@ -68,16 +68,20 @@ function sortFirebase() {
 		var topTenMoviesObj = orderedSnapshot.val();
 		
 		topTenTitles = Object.keys(topTenMoviesObj);
-		console.log(topTenTitles);
+		// console.log(topTenTitles);
 		for(var i = 0; i < topTenTitles.length; i++){
-			topTenImages[i] = topTenMoviesObj[topTenTitles[i]].imageURL;
+			topTenImages.push(topTenMoviesObj[topTenTitles[i]].imageURL);
 		}
-		console.log(topTenImages);
+		console.log('here: ' + topTenImages);
+		// console.log(topTenImages);
 		// console.log(Object.keys(topTenMoviesObj))
+		flickityFunc();
 	}), function (errorObject) {
-	console.log('error!!!!' + errorObject.code);
+		console.log('error!!!!' + errorObject.code);
 	}
-	flickityFunc();
+
+
+	
 }
 
 $(document).ajaxStop(function() {

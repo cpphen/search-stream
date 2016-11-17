@@ -104,3 +104,7 @@ function getResults() {
 		results.append(resultDiv);
 	}
 }
+
+$(document).ready(function() {
+	sortFirebase();
+});
