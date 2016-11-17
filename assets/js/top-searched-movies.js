@@ -70,13 +70,14 @@ function sortFirebase() {
 		topTenTitles = Object.keys(topTenMoviesObj);
 		console.log(topTenTitles);
 		for(var i = 0; i < topTenTitles.length; i++){
-			topTenImages = topTenMoviesObj[topTenTitles[i]].imageURL;
+			topTenImages[i] = topTenMoviesObj[topTenTitles[i]].imageURL;
 		}
 		console.log(topTenImages);
 		// console.log(Object.keys(topTenMoviesObj))
 	}), function (errorObject) {
 	console.log('error!!!!' + errorObject.code);
 	}
+	flickityFunc();
 }
 
 $(document).ajaxStop(function() {

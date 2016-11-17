@@ -1,34 +1,3 @@
-/* ================ result component ==============
-
-	<div class="row result">
-		<!-- movie image -->
-		<div class="col-lg-3 movie-poster">
-			<img src="http://static.rogerebert.com/uploads/movie/movie_poster/nightcrawler-2014/large_ciARJx8fJqum8uh6gLePaNoyYNY.jpg" alt="">
-		</div>
-		<!-- movie description & ratings -->
-		<div class="col-lg-6 movie-description">
-			<h2>Description	</h2>
-			<p>When Louis Bloom, a driven man desperate for work, muscles into the world of L.A. crime journalism, he blurs the line between observer and participant to become the star of his own story. Aiding him in his effort is Nina, a TV-news veteran.</p>
-			<h2>Ratings</h2>			
-			<ul class="reviews">
-				<li>Metacritic</li>
-				<li>Rotten Tomatoes</li>
-			</ul>
-		</div>
-		<!-- streaming links -->
-		<div class="col-lg-3 streaming-links">
-			<h2>Streaming On</h2>
-			<!-- displays available streaming sources, or none if there aren't any available -->
-			<ul>
-				<li>Netflix</li>
-				<li>HBO GO</li>
-				<li>Amazon Prime</li>
-			</ul>
-		</div>
-	</div>
-
-================================================= */ 
-
 $('#submit-btn').on('click', function(){
 	reset();
 	getMovieData();
@@ -40,8 +9,6 @@ $(document).ajaxStop(function() {
 	getResults();
 	// remove loading animate gif
 	$('#loading').addClass('hide');
-	// animate height of search section to auto
-	// $('.container-fluid').css('height','auto');
 	// display the results section
 	$('#results').removeClass('hide');
 });
@@ -58,6 +25,11 @@ function reset(){
 function getResults() {	
 	// select results section to append everything to
 	var results = $('#results');
+	
+	// show number of results
+	var numResults = $('<h2>').text('Movies found: ' + idList.length);
+	numResults.attr('id', 'num-results');
+	results.append(numResults);
 
 	for(var i = 0; i < movieData.length; i++) {
 		
@@ -95,10 +67,10 @@ function getResults() {
 		// loop through streaming sources and create li
 		if(movieData[i].streamingSources.length === 0) {
 			var notStreaming = $('<p>').text('Not Currently Streaming');
-			var signupBtn = $('<button>').text("Notify Me When It's Streaming");
-			signupBtn.addClass('signup-btn');
+			// var signupBtn = $('<button>').text("Notify Me When It's Streaming");
+			// signupBtn.addClass('signup-btn');
 			noStreams.append(notStreaming);
-			noStreams.append(signupBtn);
+			// noStreams.append(signupBtn);
 			
 		} else {
 			for (var x  = 0; x < movieData[i].streamingSources.length; x++){
