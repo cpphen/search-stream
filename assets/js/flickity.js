@@ -32,7 +32,8 @@ function flickityFunc(){
     	cellDiv.append(cellImage);
       flick.append(cellDiv);
     }
-    $('#top-results').append(flick);
+
+    $('#top-results').empty().append(flick);
 
     $('.main-carousel').flickity({
       setGallerySize: false,
