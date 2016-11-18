@@ -70,7 +70,9 @@ function sortFirebase() {
 		topTenTitles = Object.keys(topTenMoviesObj);
 		// console.log(topTenTitles);
 		for(var i = 0; i < topTenTitles.length; i++){
-			topTenImages.push(topTenMoviesObj[topTenTitles[i]].imageURL);
+			if(topTenMoviesObj[topTenTitles[i]].imageURL !== 'http://static-api.guidebox.com/misc/default_movie_240x342.jpg') {
+				topTenImages.push(topTenMoviesObj[topTenTitles[i]].imageURL);
+			}
 		}
 		console.log('here: ' + topTenImages);
 		// console.log(topTenImages);
