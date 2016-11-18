@@ -6,7 +6,7 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
-.container-fluid {
+#search-form {
 	/*background-color: #fff;*/
 	background-image: url('../../assets/images/small_steps.png');
 	height: auto;
@@ -70,13 +70,16 @@ button#submit-btn:focus {
 	padding-left: 10px;
 }
 
-#signup {
-	width: 45%;
-	color: #fff;
-	opacity: 0.8;
+#newsletter {
 	background-color: #333;
+}
+#signup {
+	width: 60%;
+	color: #fff;
+	/*opacity: 0.8;*/
+	background-color: #27ae60;
 	text-align: center;
-	margin: 0 auto 40px;
+	margin: 40px auto;
 	padding: 50px;
 	border-radius: 5px;
 }
@@ -87,20 +90,21 @@ input#user-email {
 	color: #333;
 	border-radius: 5px;
 	margin: 15px;
+	border: none;
 }
 
 button#newsletter-signup {
 	margin: 10px;
 	color: ;
-	border: 1px solid grey;
-	background-color: transparent;
+	border: none;
+	background-color: #111;
 	padding: 15px;
 	border-radius: 5px;
 	transition: background-color ease 0.3s;
 }
 
 #newsletter-signup:hover {
-	background-color: #111;
+	background-color: #333;
 }
 
 #results {
