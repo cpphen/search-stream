@@ -45,20 +45,7 @@ function getResults() {
 
 		// construct movie description and rating div
 		var descDiv = $('<div>').addClass('col-sm-6 col-lg-9 movie-description');
-		var descriptionHeading = $('<h2>').text('Description');
-		var description = $('<p>').text(movieData[i].description);
-		// append heading and description
-		descDiv.append(descriptionHeading);
-		descDiv.append(description);
-
-		// reviews
-		var reviewHeading = $('<h2>').text('Ratings');
-		var reviewUl = $('<ul>').addClass('reviews');
-		var reviewLi = $('<li>');
-		// append review heading to description and ratings div
-		descDiv.append(reviewHeading);
-		// append ratings that exist
-
+		
 		// streaming links section elements
 		var streamingHeading = $('<h2>').text('Streaming On');
 		var streamingUl = $('<ul>');
@@ -94,11 +81,27 @@ function getResults() {
 			// display list of streaming sources
 			descDiv.append(streamingUl);
 		}
+		
+		var descriptionHeading = $('<h2>').text('Description');
+		var description = $('<p>').text(movieData[i].description);
+		// append heading and description
+		descDiv.append(descriptionHeading);
+		descDiv.append(description);
+
+		// reviews
+		var reviewHeading = $('<h2>').text('Ratings');
+		var reviewUl = $('<ul>').addClass('reviews');
+		var reviewLi = $('<li>');
+		// append review heading to description and ratings div
+		descDiv.append(reviewHeading);
+		// append ratings that exist
+
+		
 
 		// append all constructed columns to row div
 		resultDiv.append(imageDiv);
 		resultDiv.append(descDiv);
-		// resultDiv.append(streamingDiv);
+		
 
 		// append completed result component to results display section
 		results.append(resultDiv);
