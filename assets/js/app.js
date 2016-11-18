@@ -12,6 +12,8 @@ $(document).ajaxStop(function() {
 	$('#loading').addClass('hide');
 	// display the results section
 	$('#results').removeClass('hide');
+	// scroll to results section
+	scrollToResults();
 });
 
 $(document).on('click', '#results-filter', function() {
@@ -27,6 +29,12 @@ $(document).on('click', '#results-filter', function() {
 		$('#results-filter').attr('data-filtered', 'false').text('Show Currently Streaming Only');
 	}
 });
+
+function scrollToResults(){
+    $('html, body').animate({
+        scrollTop: $("#results").offset().top
+    }, 1000);
+}
 
 function reset(){
 	// empty id list
