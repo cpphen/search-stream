@@ -20,27 +20,22 @@
 // ]
 function flickityFunc(){
   
-    var flick = $('<div class = "main-carousel" data-flickity style = "border: solid; border-color: black; border-width: 10px; background-color: #333333; padding: 20px; height: 480px">');
-    console.log(topTenImages);
-    console.log(topTenImages.length);
-    
-    for (var x = 0; x < topTenImages.length; x++)
-    {
-    	var cellDiv = $('<div class = "carousel-cell" style = "height: 470px  ; width: 500px">');
-      console.log(topTenImages[x]);
-      var cellImage = $('<img class = "carousel-image" style = "padding: 10px; height: 100%; width: 100%" src =' + topTenImages[x]+ '>')
-    	cellDiv.append(cellImage);
-      flick.append(cellDiv);
+    for (var i = 0; i < topTenImages.length; i++){
+      // start cell ID at 1
+      var cellId = '#flickity-' + (i + 1);
+      // create image element and pass in the image at the array index
+      var image = $('<img>').attr('src', topTenImages[i]);
+      // append image to the flickity carousel cell with the matching id
+      $(cellId).append(image);
     }
-    $('#top-results').append(flick);
 
-    $('.main-carousel').flickity({
-      setGallerySize: false,
-      accessibility: true,
-      contain: true,
-      imagesLoaded: true,
-      freeScroll: true,
-      wrapAround: true,
-      autoPlay: 2000,
-    });
+    // $('.main-carousel').flickity({
+    //   setGallerySize: false,
+    //   accessibility: true,
+    //   contain: true,
+    //   imagesLoaded: true,
+    //   freeScroll: true,
+    //   wrapAround: true,
+    //   autoPlay: 2000,
+    // });
 }

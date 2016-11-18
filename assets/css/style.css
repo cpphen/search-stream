@@ -194,3 +194,21 @@ button#results-filter:focus {
 		font-size: 20px;
 	}
 }
+
+/* ============== flickity ================ */
+.carousel-cell {
+  width: 240px;
+  height: 342px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+}
+
+#flickity-carousel {
+	margin: 45px;
+}
+
+#flickity-carousel > h2 {
+	text-align: center;
+	margin: 40px;
+}

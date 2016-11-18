@@ -22,4 +22,3 @@ function getReview(OMDBUrl, x){
 		movieData[x].imdbScore = imdbScore;
 	});
 }
-

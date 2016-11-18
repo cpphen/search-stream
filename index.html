@@ -19,7 +19,7 @@
 	</div>
 	<div id="search-bar" class="row">
 		<div class="col-lg-12">
-			<input id="user-search" type="text" placeholder="Search a movie...">
+			<input id="user-search" type="text" placeholder="Search for a movie...">
 			<br />
 			<button id="submit-btn">Search</button>
 			<span class="hide" id="loading"><img src="assets/images/loading.gif" alt="loading"></span>
@@ -29,7 +29,20 @@
 <div class="container">
 	<div id="results" class="hide">		
 	</div>
-	<div id="top-results">		
+	<div id="flickity-carousel">
+		<h2>Most Popular</h2>
+		<div class="carousel" data-flickity>
+			<div id="flickity-1" class="carousel-cell"></div>
+		  	<div id="flickity-2" class="carousel-cell"></div>
+		  	<div id="flickity-3" class="carousel-cell"></div>
+		  	<div id="flickity-4" class="carousel-cell"></div>
+		  	<div id="flickity-5" class="carousel-cell"></div>
+		  	<div id="flickity-6" class="carousel-cell"></div>
+		  	<div id="flickity-7" class="carousel-cell"></div>
+		  	<div id="flickity-8" class="carousel-cell"></div>
+		  	<div id="flickity-9" class="carousel-cell"></div>
+		  	<div id="flickity-10" class="carousel-cell"></div>
+		</div>
 	</div>
 </div>
 <div id="newsletter" class="container-fluid">
@@ -55,10 +68,10 @@
 <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.css">
 <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
 <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.js"></script>
-<!-- <script type="text/javascript" src="assets/js/omdb.js"></script> -->
 <script type="text/javascript" src="assets/js/guidebox.js"></script>
-<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/omdb.js"></script>
 <script type="text/javascript" src="assets/js/top-searched-movies.js"></script>
 <script type="text/javascript" src="assets/js/flickity.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>

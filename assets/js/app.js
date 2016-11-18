@@ -3,6 +3,7 @@ $('#submit-btn').on('click', function(){
 	getMovieData();
 	// display loading animated gif
 	$('#loading').removeClass('hide');
+	return false
 });
 
 $(document).ajaxStop(function() {
@@ -50,7 +51,6 @@ function getResults() {
 	results.append(filterBtn);
 
 	for(var i = 0; i < movieData.length; i++) {
-		
 		// construct a div with class = 'row result'
 		var resultDiv = $('<div>').addClass('row result');
 
@@ -90,7 +90,6 @@ function getResults() {
 		}
 
 		
-		
 		// if there are no streaming sources, display no streaming message
 		if(movieData[i].streamingSources.length === 0) {
 			// append streaming heading to descDiv
@@ -116,9 +115,8 @@ function getResults() {
 		var reviewLi = $('<li>');
 		// append review heading to description and ratings div
 		descDiv.append(reviewHeading);
-		// append ratings that exist
-
 		
+		// append ratings that exist
 
 		// append all constructed columns to row div
 		resultDiv.append(imageDiv);
@@ -132,4 +130,5 @@ function getResults() {
 
 $(document).ready(function() {
 	sortFirebase();
+	flickityFunc();
 });
