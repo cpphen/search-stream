@@ -46,7 +46,41 @@ function movieIDSearch(){
 	}
 }
 
+// ================ working function without ratings data =========================
+// function movieIdAjax(movieIdQuery) {
+// 	$.ajax({url: movieIdQuery, method: 'GET'}).done(function(data){
+// 		// store movie data
+// 		var id = data.id;
+// 		var title = data.title;
+// 		var releaseYear = data.release_year;
+// 		var description = data.overview;
+// 		var imageLink = data.poster_240x342;
+// 		var streamingSources = data.subscription_web_sources;
+// 		var imdbId = data.imdb;
+
+// 		// construct obj with the var references
+// 		var movieObj = {
+// 			id: id,
+// 			title: title,
+// 			releaseYear: releaseYear,
+// 			description: description,
+// 			imageLink: imageLink,
+// 			streamingSources: streamingSources,
+// 			imdbId: imdbId
+// 			// metacriticRating: metacriticRating,
+// 			// imdbRating: imdbRating
+// 		}
+
+// 		// add obj to the movieData array
+// 		movieData.push(movieObj);
+
+// 	});	
+// }
+
+// ================ test function with ratings data =========================
 function movieIdAjax(movieIdQuery) {
+	var movieObj = {};
+
 	$.ajax({url: movieIdQuery, method: 'GET'}).done(function(data){
 		// store movie data
 		var id = data.id;
@@ -57,22 +91,29 @@ function movieIdAjax(movieIdQuery) {
 		var streamingSources = data.subscription_web_sources;
 		var imdbId = data.imdb;
 
-		// construct obj with the var references
-		var movieObj = {
-			id: id,
-			title: title,
-			releaseYear: releaseYear,
-			description: description,
-			imageLink: imageLink,
-			streamingSources: streamingSources,
-			imdbId: imdbId
-			// metacriticRating: metacriticRating,
-			// imdbRating: imdbRating
-		}
-
+		// store as properties in obj
+		movieObj.id = id;
+		movieObj.title = title;
+		movieObj.releaseYear = releaseYear;
+		movieObj.description = description;
+		movieObj.imageLink = imageLink;
+		movieObj.streamingSources = streamingSources;
+		movieObj.imdbId = imdbId;
+		
+		// once the first ajax call is complete, run the second API call to OMDB 
+	}).then(function(){
+		// construct omdb api call
+		var OMDBUrl = "http://www.omdbapi.com/?i=" + movieObj.imdbId + "&plot=short&r=json";
+		// ajax call to omdb
+		$.ajax({url: OMDBUrl, method: 'GET'}).done(function(response){		 
+			// add ratings data to the movieObj
+			 movieObj.metascore = response.Metascore;
+			 movieObj.imdbScore = response.imdbScore;
+			
+		});
+	}).then(function(){
 		// add obj to the movieData array
 		movieData.push(movieObj);
-
-	});	
+	});		
 }
 

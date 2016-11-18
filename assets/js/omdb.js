@@ -22,3 +22,19 @@ function getReview(OMDBUrl, x){
 		movieData[x].imdbScore = imdbScore;
 	});
 }
+
+function getMovieRatings(imdbId) {
+	
+	// construct omdb api call based on imdbId
+	var OMDBUrl = "http://www.omdbapi.com/?i=" + imdbId + "&plot=short&r=json";
+	// ajax call to omdb
+	$.ajax({url: OMDBUrl, method: 'GET'}).done(function(data){
+		 
+		 // extract rotten tomatoes score and metacritic rating from json obj
+		 var metascore = data.Metascore;
+		 var imdbScore = data.imdbRating;
+		 // store the ratings in the movie obj
+		 console.log(metascore);
+		 console.log(imdbScore);
+	});
+}

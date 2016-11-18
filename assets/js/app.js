@@ -120,11 +120,20 @@ function getResults() {
 		// reviews
 		var reviewHeading = $('<h2>').text('Ratings');
 		var reviewUl = $('<ul>').addClass('reviews');
-		var reviewLi = $('<li>');
+		var metascoreLi = $('<li>');
+		var imdbRatingLi = $('<li>');
 		// append review heading to description and ratings div
 		descDiv.append(reviewHeading);
-		
-		// append ratings that exist
+		// append metascore to Ul
+		metascoreLi.text('Metascore: ' + movieData[i].metascore)
+		reviewUl.append(metascoreLi);
+		// append imdb rating to Ul
+		imdbRatingLi.text('IMDB Rating: ' + movieData[i].imdbScore);
+		reviewUl.append(imdbRatingLi);
+		// append completed reviewUl below ratings heading
+		descDiv.append(reviewUl)
+
+
 
 		// append all constructed columns to row div
 		resultDiv.append(imageDiv);
