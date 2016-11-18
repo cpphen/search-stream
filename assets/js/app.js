@@ -13,6 +13,20 @@ $(document).ajaxStop(function() {
 	$('#results').removeClass('hide');
 });
 
+$(document).on('click', '#results-filter', function() {
+	// toggles the hide class
+	$('.not-streaming').toggleClass('hide');
+
+	// if data filtered attr is false
+	if($('#results-filter').attr('data-filtered') === 'false'){
+		// change data filtered attr to true and change btn text to show all results
+		$('#results-filter').attr('data-filtered','true').text('Show All Results');	
+	} else {
+		// change data filtered attr to false and change btn text to offer filtered option
+		$('#results-filter').attr('data-filtered', 'false').text('Show Currently Streaming Only');
+	}
+});
+
 function reset(){
 	// empty id list
 	idList = [];
@@ -31,6 +45,10 @@ function getResults() {
 	numResults.attr('id', 'num-results');
 	results.append(numResults);
 
+	// button to toggle between all and only streaming results
+	var filterBtn = $('<button>').text('Show Currently Streaming Only').attr('id', "results-filter").attr('data-filtered','false');
+	results.append(filterBtn);
+
 	for(var i = 0; i < movieData.length; i++) {
 		
 		// construct a div with class = 'row result'
@@ -48,16 +66,16 @@ function getResults() {
 		
 		// streaming links section elements
 		var streamingHeading = $('<h2>').text('Streaming On');
+		var notStreamingHeading = $('<h2>').text('Not Currently Streaming');
 		var streamingUl = $('<ul>');
 		var noStreams = $('<div>');
 
 		// loop through streaming sources and create li
 		if(movieData[i].streamingSources.length === 0) {
 			var notStreaming = $('<p>').text('Not Currently Streaming');
-			// var signupBtn = $('<button>').text("Notify Me When It's Streaming");
-			// signupBtn.addClass('signup-btn');
 			noStreams.append(notStreaming);
-			// noStreams.append(signupBtn);
+			resultDiv.addClass('not-streaming');
+			
 			
 		} else {
 			for (var x  = 0; x < movieData[i].streamingSources.length; x++){
@@ -71,17 +89,21 @@ function getResults() {
 			}
 		}
 
-		// append streaming heading to descDiv
-		descDiv.append(streamingHeading);
+		
 		
 		// if there are no streaming sources, display no streaming message
 		if(movieData[i].streamingSources.length === 0) {
+			// append streaming heading to descDiv
+			descDiv.append(streamingHeading);
 			descDiv.append(noStreams);
 		} else { 			
+			var streamingCheck = '<i class="fa fa-check-square-o streaming-check" aria-hidden="true"></i>';
+			descDiv.append(streamingCheck);
+			descDiv.append(streamingHeading);
 			// display list of streaming sources
 			descDiv.append(streamingUl);
 		}
-		
+
 		var descriptionHeading = $('<h2>').text('Description');
 		var description = $('<p>').text(movieData[i].description);
 		// append heading and description

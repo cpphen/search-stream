@@ -23,7 +23,7 @@ function flickityFunc(){
     var flick = $('<div class = "main-carousel" data-flickity style = "border: solid; border-color: black; border-width: 10px; background-color: #333333; padding: 20px; height: 480px">');
     console.log(topTenImages);
     console.log(topTenImages.length);
-    debugger;
+    
     for (var x = 0; x < topTenImages.length; x++)
     {
     	var cellDiv = $('<div class = "carousel-cell" style = "height: 470px  ; width: 500px">');
