@@ -1,0 +1,43 @@
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyABkACxzTv791Z1lJhxiNY8beVafNsdO7A",
+    authDomain: "search-stream.firebaseapp.com",
+    databaseURL: "https://search-stream.firebaseio.com",
+    storageBucket: "search-stream.appspot.com",
+    messagingSenderId: "409886446451"
+  };
+  firebase.initializeApp(config);
+// make a reference for the database.
+var database = firebase.database();
+
+$(document).ready(function(){
+	$(document).on('click','#submit-btn', function() {
+		// var movieName = $('#user-search').val().trim();
+		// database.ref('movies').push({
+		// 	movieName: movieName
+		// })
+	
+	
+
+	// database.ref('movies').child(movieName).update({counter: 3, imageURL: 'blah.jpg'});
+ });
+});
+
+// var movies = {
+//  lionKing: 1,
+//  matrix: 4,
+//  borneIdentity: 1,
+//  notebook: 10,
+
+	
+ 
+ 
+// };
+
+
+
+// for (var key in movies) {
+//  if (movies.hasOwnProperty(key)) {
+//    console.log(key + " -> " + movies[key]);
+//  }
+// }

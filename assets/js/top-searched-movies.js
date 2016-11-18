@@ -38,6 +38,8 @@ var topTenImages = [];
 function grabTitleAndImage() {
 	movieName = movieData[0].title;
 	imageURL = movieData[0].imageLink;
+	console.log('moviveName', movieName)
+	console.log('movie object', movieData[0].title)
 	pushFirebase();
 }
 
@@ -68,7 +70,7 @@ function sortFirebase() {
 		var topTenMoviesObj = orderedSnapshot.val();
 		
 		topTenTitles = Object.keys(topTenMoviesObj);
-		// console.log(topTenTitles);
+		console.log(topTenTitles.length);
 		for(var i = 0; i < topTenTitles.length; i++){
 			if(topTenMoviesObj[topTenTitles[i]].imageURL !== 'http://static-api.guidebox.com/misc/default_movie_240x342.jpg') {
 				topTenImages.push(topTenMoviesObj[topTenTitles[i]].imageURL);

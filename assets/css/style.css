@@ -185,6 +185,15 @@ button#results-filter:focus {
 .hide {
 	display: none;
 }
+.carousel
+{
+	border: solid; 
+	border-color: black; 
+	border-width: 10px; 
+	background-color: #333333; 
+	padding: 20px; 
+	height: 480px;
+}
 
 @media (max-width: 768px) {
 	input#user-search {

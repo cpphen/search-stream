@@ -18,8 +18,15 @@ function getReview(OMDBUrl, x){
 		var metascore = response.Metascore;
 		var imdbScore = response.imdbRating;
 		//Insert the movie scores into the existing objects inside the moviesData[] array.
-		movieData[x].metascore = metascore;
-		movieData[x].imdbScore = imdbScore;
+		if(movieData === null)
+		{
+			return;
+		}
+		else
+		{
+			movieData[x].metascore = metascore;
+			movieData[x].imdbScore = imdbScore;	
+		}
 	});
 }
 
