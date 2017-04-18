@@ -7,3 +7,6 @@ Built with jQuery and Bootstrap.
 
 Work in Progress:
 * User email address capture not currently set up
+
+
+To use app, copy link to repository, clone onto computer then open the index.html file.
